@@ -1,0 +1,8 @@
+{
+  "name": "scouts-water-map",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:lcb42/scouts-water-map.git",
+  "author": "lcb42 <lucy_blatherwick@autovia.co.uk>",
+  "license": "MIT"
+}
