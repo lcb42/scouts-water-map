@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lcb42/scouts-water-map#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
   }
 }
