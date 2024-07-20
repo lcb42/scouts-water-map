@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { Map } from './Components/Map';
+
+import './App.scss';
+
 const App = () => {
   const [dbresult, setDbresult] = useState('Loading...');
 
@@ -18,8 +22,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>This is an app with a map</h1>
-      <h1>{JSON.stringify(dbresult)}</h1>
+      <div className='smw__info'>
+        <div className='smw__info--title'>
+          <h1>Title</h1>
+          <h2>{JSON.stringify(dbresult)}</h2>
+        </div>
+        <div>Key</div>
+      </div>
+      <div className='smw__map'>
+        <Map />
+      </div>
     </div>
   );
 }
