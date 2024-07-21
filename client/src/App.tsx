@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Map } from './Components/Map';
+import { MapContainer } from './Components/MapContainer';
 
 import './App.scss';
 
 const App = () => {
   const [dbresult, setDbresult] = useState('Loading...');
 
-  async function getTestDBContents() {
-    try {
-      const response = await axios.get('/testdb');
-      console.warn('RESP: ', response.data);
-      setDbresult(response.data);
-    } catch (error) {
-      console.error(error);
+  useEffect(() => {
+    
+    const getTestDBContents = async () => {
+      try {
+        const response = await axios.get('/testdb');
+        console.warn('RESP: ', response.data);
+        setDbresult(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
-  }
 
-  getTestDBContents();
+    getTestDBContents();
+
+  }, []);
 
   return (
     <div className="App">
@@ -30,7 +34,7 @@ const App = () => {
         <div>Key</div>
       </div>
       <div className='smw__map'>
-        <Map />
+        <MapContainer />
       </div>
     </div>
   );
