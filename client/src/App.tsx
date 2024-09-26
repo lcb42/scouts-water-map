@@ -4,6 +4,7 @@ import axios from 'axios';
 import { MapContainer } from './Components/MapContainer';
 
 import './App.scss';
+import { InfoSidebar } from './Components/InfoSidebar';
 
 const App = () => {
   const [dbresult, setDbresult] = useState('Loading...');
@@ -26,16 +27,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className='smw__info'>
-        <div className='smw__info--title'>
-          <h1>Title</h1>
-          <h2>{JSON.stringify(dbresult)}</h2>
-        </div>
-        <div>Key</div>
-      </div>
-      <div className='smw__map'>
-        <MapContainer />
-      </div>
+      <InfoSidebar dbresult={JSON.stringify(dbresult)} />
+      <MapContainer />
     </div>
   );
 }

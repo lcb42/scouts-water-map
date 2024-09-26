@@ -1,14 +1,16 @@
 @import 'src/variables.scss';
 
-.swm__map {
+.swm__info {
+  background-color: $color-cambridge-blue;
+  color: $color-green-black;
   display: flex;
   flex-direction: column;
-  background-color: aqua;
-  width: 70%;
   height: 100vh;
+  padding: $gutter;
+  width: 30%;
 
   @include devices('untilDesktop'){ // mobile + tablet styling
-    width: 100vw;
-    height: 800px;
+    width: 100%;
+    height: 600px;
   }
-}
+};

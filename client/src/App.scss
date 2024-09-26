@@ -8,33 +8,4 @@
   @include devices('untilDesktop'){ // mobile + tablet styling
     flex-direction: column;
   }
-
-  .smw__info {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 100vh;
-
-    @include devices('untilDesktop'){ // mobile + tablet styling
-      width: 100%;
-      height: 600px;
-    }
-
-    .smw__info--title {
-      padding: $gutter;
-    }
-  };
-
-  .smw__map {
-    display: flex;
-    flex-direction: column;
-    background-color: aqua;
-    width: 70%;
-    height: 100vh;
-
-    @include devices('untilDesktop'){ // mobile + tablet styling
-      width: 100vw;
-      height: 800px;
-    }
-  }
 }
