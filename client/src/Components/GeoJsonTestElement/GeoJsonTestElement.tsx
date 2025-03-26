@@ -16,6 +16,15 @@ const GeoJsonTestElement = (
         if (feature.geometry.type === "LineString") {
           return { strokeWidth: "1", stroke: "green" };
         }
+        if (feature.properties?.classification === "B1") {
+          return { className: 'geo-json-polygon-b1' };
+        }
+        if (feature.properties?.classification === "B2") {
+          return { className: 'geo-json-polygon-b2' };
+        }
+        if (feature.properties?.classification === "C") {
+          return { className: 'geo-json-polygon-c' };
+        }
         return {
           className: 'geo-json-polygon',
         };
