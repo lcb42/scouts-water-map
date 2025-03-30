@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Map,
   Marker
@@ -8,7 +7,6 @@ import { GeoJsonTestElement } from '../GeoJsonTestElement';
 import './style.scss';
 
 const MapContainer = () => {
-  // Load all geo shapes into map from db
   // Default centre should be current location (or default to southampton if not available?)
 
   return (

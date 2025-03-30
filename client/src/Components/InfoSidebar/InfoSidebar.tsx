@@ -2,11 +2,7 @@ import React from 'react';
 
 import './style.scss';
 
-const MapContainer = ({
-  dbresult
-}: {
-  dbresult: string
-}) => {
+const InfoSidebar = () => {
 
   // title
   // common locations
@@ -19,11 +15,10 @@ const MapContainer = ({
     <div className="swm__info">
       <div className='swm__info--title'>
         <h1>UK Scouting Water Classifications</h1>
-        <h2>{ dbresult }</h2>
       </div>
       <div>Key</div>
     </div>
   );
 };
 
-export default MapContainer;
+export default InfoSidebar;
