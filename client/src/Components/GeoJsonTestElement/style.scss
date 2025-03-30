@@ -1,0 +1,23 @@
+@import 'src/variables.scss';
+
+.geo-json-polygon,
+.geo-json-polygon-b1,
+.geo-json-polygon-b2,
+.geo-json-polygon-c {
+  fill: #d4e6ec99;
+  stroke-width: 3;
+  stroke: black;
+  r: 20;
+}
+
+.geo-json-polygon-b1 {
+  fill: red;
+}
+
+.geo-json-polygon-b2 {
+  fill: green;
+}
+
+.geo-json-polygon-c {
+  fill: blue;
+}
