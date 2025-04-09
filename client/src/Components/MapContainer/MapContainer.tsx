@@ -11,7 +11,7 @@ const MapContainer = () => {
 
   return (
     <div className='swm__map'>
-      <Map defaultCenter={[51.345, 1.135]} defaultZoom={11}>
+      <Map defaultCenter={[50.9289, -1.4085]} defaultZoom={11}>
         <Marker width={50} anchor={[51.345, 1.135]} />
         <GeoJsonTestElement />
       </Map>
