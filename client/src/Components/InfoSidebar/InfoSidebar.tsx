@@ -1,8 +1,13 @@
 import React from 'react';
 
+import { SelectedAreaType } from '../../types';
 import './style.scss';
 
-const InfoSidebar = () => {
+const InfoSidebar = ({
+  selectedArea
+}: {
+  selectedArea: SelectedAreaType | undefined;
+}) => {
 
   // title
   // common locations
@@ -16,7 +21,14 @@ const InfoSidebar = () => {
       <div className='swm__info--title'>
         <h1>UK Scouting Water Classifications</h1>
       </div>
-      <div>Key</div>
+      <div>
+        <h2>Selected Area</h2>
+        {selectedArea ? (
+          <h3>{selectedArea.classification}</h3>
+        ) : (
+          <p>Select an area to see more information</p>
+        )}
+      </div>
     </div>
   );
 };
