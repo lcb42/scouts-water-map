@@ -4,6 +4,7 @@ export const testData = {
     {
       "type": "Feature",
       "properties": {
+        "id": "001",
         "classification": "B1",
       },
       "geometry": {
@@ -353,6 +354,7 @@ export const testData = {
     {
       "type": "Feature",
       "properties": {
+        "id": "002",
         "classification": "B2",
       },
       "geometry": {
@@ -394,6 +396,7 @@ export const testData = {
     {
       "type": "Feature",
       "properties": {
+        "id": "003",
         "classification": "C",
       },
       "geometry": {

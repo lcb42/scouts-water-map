@@ -2,28 +2,59 @@ import React from 'react';
 
 import './style.scss';
 import { GeoJson, PigeonProps } from 'pigeon-maps';
-import { Feature } from 'geojson';
+import { Feature, GeoJsonProperties } from 'geojson';
 import { testData } from './geoJsonTestData';
+import { SelectedAreaType } from '../../types';
 
 interface GeoJsonTestElementProps extends PigeonProps {
+  selectedArea: SelectedAreaType | undefined;
   setSelectedArea: Function;
 }
 
 const GeoJsonTestElement = ({
+  selectedArea,
   setSelectedArea,
   ...props
 }: GeoJsonTestElementProps) => {
   const handlePolygonClick = (event: any) => {
-    const classification = event.payload?.properties?.classification;
-    if (classification) {
-      // Handle the click event and set the selected area
-      // For example, you can call a function passed via props
+    const properties = event.payload?.properties;
+    const classification = properties?.classification;
+    const id = properties?.id;
+
+    if (classification && id) {
       setSelectedArea({
-        classification: classification
+        id: id,
+        classification: classification,
       });
-      console.log(`Clicked on polygon with classification: ${classification}`);
+      console.log(`Clicked on polygon with classification: ${classification} and id: ${id}`);
     }
   };
+
+  const getClassificationClassname = (classification: string) => {
+    switch (classification) {
+      case "A":
+        return 'geo-json-polygon-a';
+      case "B1":
+        return 'geo-json-polygon-b1';
+      case "B2":
+        return 'geo-json-polygon-b2';
+      case "B3":
+        return "geo-json-polygon-b3";
+      case "C":
+        return 'geo-json-polygon-c';
+      default:
+        return'geo-json-polygon';
+    }
+  }
+
+  const getClassname = (properties: GeoJsonProperties) => {
+    let classname = '';
+    classname = getClassificationClassname(properties?.classification);
+    if (properties?.id === selectedArea?.id) {
+      classname += ' selectedArea';
+    }
+    return classname;
+  }
 
   return (
     <GeoJson
@@ -31,20 +62,8 @@ const GeoJsonTestElement = ({
       data={testData}
       onClick={handlePolygonClick}
       styleCallback={(feature: Feature) => {
-        if (feature.geometry.type === "LineString") {
-          return { strokeWidth: "1", stroke: "green" };
-        }
-        if (feature.properties?.classification === "B1") {
-          return { className: 'geo-json-polygon-b1' };
-        }
-        if (feature.properties?.classification === "B2") {
-          return { className: 'geo-json-polygon-b2' };
-        }
-        if (feature.properties?.classification === "C") {
-          return { className: 'geo-json-polygon-c' };
-        }
         return {
-          className: 'geo-json-polygon',
+          className: getClassname(feature.properties),
         };
       }}
     />

@@ -32,3 +32,8 @@
 .geo-json-polygon-c {
   fill: $color-classification-c;
 }
+
+.selectedArea {
+  stroke-width: 3;
+  opacity: 0.7;
+}

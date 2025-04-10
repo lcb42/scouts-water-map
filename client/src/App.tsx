@@ -10,7 +10,10 @@ const App = () => {
   return (
     <div className="App">
       <InfoSidebar selectedArea={selectedArea} />
-      <MapContainer setSelectedArea={setSelectedArea} />
+      <MapContainer
+        selectedArea={selectedArea}
+        setSelectedArea={setSelectedArea}
+      />
     </div>
   );
 }
